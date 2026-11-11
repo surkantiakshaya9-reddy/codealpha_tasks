@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive music player built with HTML, CSS and JavaScript.">
+  <title>SoundWave | Music Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="player-shell">
+    <header class="topbar"><a class="logo" href="#">soundwave<span>.</span></a><span class="local-label">YOUR MUSIC SPACE</span></header>
+    <section class="player">
+      <div class="cover" id="cover"><div class="record"><div class="record-center">♪</div></div></div>
+      <p class="eyebrow">NOW PLAYING</p>
+      <h1 id="songTitle">Choose your music</h1>
+      <p class="artist" id="artistName">Add audio files from your device</p>
+
+      <div class="timeline">
+        <span id="currentTime">0:00</span>
+        <input type="range" id="progress" min="0" max="100" value="0" aria-label="Song progress">
+        <span id="duration">0:00</span>
+      </div>
+      <div class="controls">
+        <button id="prevBtn" class="secondary" aria-label="Previous song">|&#9664;</button>
+        <button id="playBtn" class="play" aria-label="Play">▶</button>
+        <button id="nextBtn" class="secondary" aria-label="Next song">&#9654;|</button>
+      </div>
+      <div class="extra-controls">
+        <label class="volume-label" for="volume">Volume</label>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+        <label class="autoplay"><input type="checkbox" id="autoplay"> Autoplay next</label>
+      </div>
+      <label class="upload-btn" for="fileInput">＋ Add songs from device</label>
+      <input id="fileInput" type="file" accept="audio/*" multiple hidden>
+      <p class="privacy-note">Audio files are played locally in your browser. They are not uploaded.</p>
+    </section>
+    <section class="playlist-section">
+      <div class="playlist-heading"><h2>Your playlist</h2><span id="trackCount">0 songs</span></div>
+      <ul id="playlist" class="playlist"><li class="empty">Your playlist is empty. Add audio files to begin.</li></ul>
+    </section>
+    <footer>Built with HTML, CSS &amp; JavaScript</footer>
+  </main>
+  <audio id="audio" preload="metadata"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
